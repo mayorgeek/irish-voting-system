@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Login</title>
+</head>
+<body>
+
+{% extends 'app.html' %}
+
+{% block content %}
+    <div class="max-w-3xl mx-auto mt-16 border border-gray-300 rounded-md p-10">
+        <h1 class="text-gray-800 font-medium text-2xl text-center mb-8">Sign In to your Account</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-5">
+                <label for="student_id" class="text-gray-800 text-base">Student ID</label>
+                <input
+                        id="student_id"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        autofocus
+                >
+            </div>
+            <div class="mb-3">
+                <label for="password" class="text-gray-800 text-base">Password</label>
+                <input
+                        id="password"
+                        type="password"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        autofocus
+                >
+            </div>
+
+            <button
+                    type="submit"
+                    class="mt-4 px-7 py-2.5 rounded-md text-white text-base uppercase font-normal bg-green-600 hover:bg-green-700 transition ease-in-out"
+            >
+                Login
+            </button>
+        </form>
+    </div>
+{% endblock content %}
+
+</body>
+</html>

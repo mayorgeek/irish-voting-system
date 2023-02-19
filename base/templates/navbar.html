@@ -1,0 +1,21 @@
+<nav>
+    <div class="bg-green-600 px-12 py-4 flex items-center justify-between">
+        <div>
+            <h1 class="text-white text-xl uppercase font-semibold tracking-wide">Irish Voting System</h1>
+        </div>
+        <div class="flex items-center space-x-2">
+            <a
+                    class="block text-white text-base uppercase font-normal p-3 rounded-sm hover:bg-green-500 transition ease-in-out"
+                    href="{% url 'student_login' %}"
+            >
+                Student
+            </a>
+            <a
+                    class="block text-white text-base uppercase font-normal p-3 rounded-sm hover:bg-green-500 transition ease-in-out"
+                    href="{% url 'admin_login' %}"
+            >
+                Admin
+            </a>
+        </div>
+    </div>
+</nav>
