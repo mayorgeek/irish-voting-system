@@ -12,7 +12,95 @@
 {% extends 'app.html' %}
 
 {% block content %}
-    This is Student Register
+    <div class="max-w-3xl mx-auto my-16 border border-gray-300 rounded-md p-10">
+        <h1 class="text-gray-800 font-medium text-2xl text-center mb-8">Register as a Student</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-5">
+                <label for="name" class="text-gray-800 text-base">Name</label>
+                <input
+                        id="name"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        autofocus
+                        required
+                >
+            </div>
+            <div class="mb-5">
+                <label for="faculty" class="text-gray-800 text-base">Faculty</label>
+                <input
+                        id="faculty"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        required
+                        list="faculties"
+                >
+                <datalist id="faculties">
+                    <option value="Science"></option>
+                    <option value="Arts"></option>
+                    <option value="Education"></option>
+                </datalist>
+            </div>
+            <div class="mb-5">
+                <label for="department" class="text-gray-800 text-base">Department</label>
+                <input
+                        id="department"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        required
+                        list="departments"
+                >
+                <datalist id="departments">
+                    <option value="Mathematics"></option>
+                    <option value="Microbiology"></option>
+                    <option value="Chemical Sciences"></option>
+                </datalist>
+            </div>
+            <div class="mb-5">
+                <label for="email_id" class="text-gray-800 text-base">Email ID</label>
+                <input
+                        id="email_id"
+                        type="email"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        required
+                >
+            </div>
+            <div class="mb-5">
+                <label for="student_id" class="text-gray-800 text-base">Student ID</label>
+                <input
+                        id="student_id"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        required
+                >
+            </div>
+            <div class="mb-5">
+                <label for="password" class="text-gray-800 text-base">Password</label>
+                <input
+                        id="password"
+                        type="password"
+                        required
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                >
+            </div>
+
+            <div class="flex items-center justify-between">
+                <button
+                        type="submit"
+                        class="px-7 py-2.5 rounded-md text-white text-base uppercase font-normal bg-green-600 hover:bg-green-700 transition ease-in-out"
+                >
+                    Submit
+                </button>
+
+                <a
+                        href="{% url 'student_login' %}"
+                        class="text-blue-600 underline text-base font-normal"
+                >
+                    Already have an account? Login
+                </a>
+            </div>
+        </form>
+    </div>
 {% endblock content %}
 
 </body>

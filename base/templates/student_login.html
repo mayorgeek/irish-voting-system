@@ -12,7 +12,7 @@
 {% extends 'app.html' %}
 
 {% block content %}
-    <div class="max-w-3xl mx-auto mt-16 border border-gray-300 rounded-md p-10">
+    <div class="max-w-3xl mx-auto my-16 border border-gray-300 rounded-md p-10">
         <h1 class="text-gray-800 font-medium text-2xl text-center mb-8">Sign In to your Account</h1>
         <form method="POST">
             {% csrf_token %}
@@ -23,24 +23,34 @@
                         type="text"
                         class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
                         autofocus
+                        required
                 >
             </div>
-            <div class="mb-3">
+            <div class="mb-5">
                 <label for="password" class="text-gray-800 text-base">Password</label>
                 <input
                         id="password"
                         type="password"
+                        required
                         class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
-                        autofocus
                 >
             </div>
 
-            <button
-                    type="submit"
-                    class="mt-4 px-7 py-2.5 rounded-md text-white text-base uppercase font-normal bg-green-600 hover:bg-green-700 transition ease-in-out"
-            >
-                Login
-            </button>
+            <div class="flex items-center justify-between">
+                <button
+                        type="submit"
+                        class="px-7 py-2.5 rounded-md text-white text-base uppercase font-normal bg-green-600 hover:bg-green-700 transition ease-in-out"
+                >
+                    Login
+                </button>
+
+                <a
+                        href="{% url 'student_register' %}"
+                        class="text-blue-600 underline text-base font-normal"
+                >
+                    Don't have an account? Register
+                </a>
+            </div>
         </form>
     </div>
 {% endblock content %}

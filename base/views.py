@@ -5,6 +5,10 @@ from django.shortcuts import render
 
 def student_login(request):
     context = {}
+
+    if request.POST:
+        print("good stuffs")
+
     return render(request, 'student_login.html', context)
 
 
