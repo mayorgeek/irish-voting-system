@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Candidate</title>
+</head>
+<body>
+{% extends 'app.html' %}
+
+{% block content %}
+    <div class="max-w-3xl mx-auto my-16 border border-gray-300 rounded-md p-10">
+        <h1 class="text-gray-800 font-medium text-2xl text-center mb-8">Add new Candidate</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-5">
+                <label for="name" class="text-gray-800 text-base">Candidate Name</label>
+                <input
+                        id="name"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        autofocus
+                        required
+                >
+            </div>
+
+            <div class="mb-5">
+                <label for="category" class="text-gray-800 text-base">Category</label>
+                <input
+                        id="category"
+                        type="text"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        required
+                        list="categories"
+                >
+                <datalist id="categories">
+                    <option value="Presidential Election"></option>
+                    <option value="Gubernatorial Election"></option>
+                    <option value="Senate Election"></option>
+                </datalist>
+            </div>
+
+            <div class="mb-5">
+                <label for="image" class="text-gray-800 text-base">Image</label>
+                <input
+                        id="image"
+                        type="file"
+                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
+                        required
+                >
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a
+                        href="{% url 'account_page' %}"
+                        class="block w-fit px-7 py-2.5 rounded-md text-white text-base uppercase font-normal bg-gray-500 hover:bg-gray-600 transition ease-in-out"
+                >
+                    Cancel
+                </a>
+                <button
+                        type="submit"
+                        class="px-7 py-2.5 rounded-md text-white text-base uppercase font-normal bg-green-600 hover:bg-green-700 transition ease-in-out"
+                >
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+</body>
+</html>
