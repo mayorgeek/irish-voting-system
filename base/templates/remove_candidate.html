@@ -1,0 +1,22 @@
+{% extends 'app.html' %}
+
+{% block content %}
+    <div class="px-12 py-16">
+        <h1 class="text-gray-800 font-normal text-xl mb-8">Are you sure that you want to remove this candidate?</h1>
+        <div class="flex items-center space-x-4">
+            <a href="{% url 'view_all_candidates' %}"
+               class="block w-fit px-5 py-2.5 rounded-md text-white text-base font-normal bg-gray-500 hover:bg-gray-600 transition ease-in-out"
+            >
+                Cancel
+            </a>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit"
+                        class="bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-md text-white text-center text-base font-normal transition ease-in-out"
+                >
+                    Remove Candidate
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

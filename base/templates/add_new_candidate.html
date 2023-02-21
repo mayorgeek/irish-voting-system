@@ -13,12 +13,22 @@
 {% block content %}
     <div class="max-w-3xl mx-auto my-16 border border-gray-300 rounded-md p-10">
         <h1 class="text-gray-800 font-medium text-2xl text-center mb-8">Add new Candidate</h1>
+
+        {% if messages %}
+            <div class="bg-red-300 p-4 rounded-md mb-8">
+                {% for message in messages %}
+                    <p class="text-red-700">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
         <form method="POST">
             {% csrf_token %}
             <div class="mb-5">
                 <label for="name" class="text-gray-800 text-base">Candidate Name</label>
                 <input
                         id="name"
+                        name="name"
                         type="text"
                         class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
                         autofocus
@@ -30,6 +40,7 @@
                 <label for="category" class="text-gray-800 text-base">Category</label>
                 <input
                         id="category"
+                        name="category"
                         type="text"
                         class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
                         required
@@ -43,14 +54,28 @@
             </div>
 
             <div class="mb-5">
-                <label for="image" class="text-gray-800 text-base">Image</label>
-                <input
-                        id="image"
-                        type="file"
-                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
-                        required
+                <label for="rank" class="text-gray-800 text-base">Rank</label>
+                <select id="rank" name="rank"
+                     class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
                 >
+                    <option selected>Select rank</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
             </div>
+
+{#            <div class="mb-5">#}
+{#                <label for="image" class="text-gray-800 text-base">Image</label>#}
+{#                <input#}
+{#                        id="image"#}
+{#                        type="file"#}
+{#                        class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"#}
+{#                        required#}
+{#                >#}
+{#            </div>#}
 
             <div class="flex items-center space-x-4">
                 <a

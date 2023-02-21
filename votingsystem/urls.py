@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/view-all-voting/', views.view_all_voting, name="view_all_voting"),
     path('admin/add-new-candidate/', views.add_new_candidate, name="add_new_candidate"),
     path('admin/view-all-candidates/', views.view_all_candidates, name="view_all_candidates"),
+    path('admin/remove-candidate/<str:pk>/', views.remove_candidate, name="remove_candidate"),
     path('admin/view-all-results/', views.view_all_results, name="view_all_results"),
     path('admin/view-all-students/', views.view_all_students, name="view_all_students"),
     path('voting-page/', views.voting_page, name="voting_page"),
