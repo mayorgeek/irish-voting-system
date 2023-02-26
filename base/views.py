@@ -113,6 +113,9 @@ def view_all_students(request):
 
 
 def voting_page(request):
+
+    labels =
+
     context = {}
     return render(request, 'voting_page.html', context)
 
