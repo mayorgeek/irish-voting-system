@@ -16,16 +16,17 @@
         <form method="POST">
             {% csrf_token %}
             <div class="mb-5">
-                <label for="student_id" class="text-gray-800 text-base">Vote Label</label>
+                <label for="label" class="text-gray-800 text-base">Vote Label</label>
                 <input
-                        id="student_id"
+                        id="label"
+                        name="label"
                         type="text"
                         class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
                         autofocus
                         required
-                        list="votings"
+                        list="labels"
                 >
-                <datalist id="votings">
+                <datalist id="labels">
                     <option value="Presidential Election"></option>
                     <option value="Gubernatorial Election"></option>
                     <option value="Senate Election"></option>

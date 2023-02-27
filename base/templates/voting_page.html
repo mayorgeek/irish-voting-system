@@ -23,12 +23,12 @@
                         class="block mt-1 w-full outline-none border border-gray-300 focus:border-green-600 rounded-md p-3"
                         autofocus
                         required
-                        list=""
+                        list="candidates"
                 >
                 <datalist id="candidates">
-                    <option value="Presidential Election"></option>
-                    <option value="Gubernatorial Election"></option>
-                    <option value="Senate Election"></option>
+                    {% for candidate in candidates %}
+                        <option value="{{ candidate.name }}">{{ candidate.name }}</option>
+                    {% endfor %}
                 </datalist>
             </div>
 
@@ -42,9 +42,9 @@
                         list="categories"
                 >
                 <datalist id="categories">
-                    <option value="Presidential Election"></option>
-                    <option value="Gubernatorial Election"></option>
-                    <option value="Senate Election"></option>
+                    {% for category in categories %}
+                        <option value="{{ category.label }}">{{ category.label }}</option>
+                    {% endfor %}
                 </datalist>
             </div>
 
@@ -58,7 +58,6 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5</option>
                 </select>
             </div>
 
