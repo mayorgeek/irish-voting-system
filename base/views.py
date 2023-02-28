@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .forms import CandidateForm,VotingForm
-from .models import Candidate,Voting,User,Vote
+from .models import Candidate,Voting,User, Vote
 
+
+from django.utils.datastructures import MultiValueDictKeyError
 
 # Create your views here.
 
@@ -33,10 +35,32 @@ def student_login(request):
 
     return render(request, 'student_login.html', context)
 
-
 def student_register(request):
-    context = {}
-    return render(request, 'student_register.html', context)
+    if request.method == "POST":
+        try:
+            name = request.POST['name']
+            faculty = request.POST['faculty']
+            department = request.POST['department']
+            email = request.POST['email']
+            student_id = request.POST['student_id']
+            password = request.POST['password']
+        except MultiValueDictKeyError:
+            name = False
+            faculty = False
+            department = False
+            email = False
+            student_id = False
+            password = False         
+
+        user = User.objects.create_user(
+            name=name, faculty=faculty, department=department, email=email, student_id=student_id, password=password
+        )
+        user.save()
+        return redirect('student_login')
+    else:
+        return render(request, 'student_register.html')
+
+
 
 
 def admin_login(request):
